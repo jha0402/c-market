@@ -8,4 +8,5 @@
 ```shell
 npx create-next-app@latest --typescript
 yarn add next@latest react@rc react-dom@rc
+npx tailwindcss init -p
 ```
