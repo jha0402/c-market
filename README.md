@@ -78,7 +78,7 @@ export default new PrismaClient();
 // pages/api/hello.ts
 // Example:
 import type { NextApiRequest, NextApiResponse } from 'next';
-import client from '../../libs/client';
+import client from '@libs/client';
 
 type Data = {
     name: string,

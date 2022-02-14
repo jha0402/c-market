@@ -10,7 +10,7 @@ interface InputProps {
     required: boolean;
 }
 
-const Input = ({ label, name, kind = 'text', register, type, required }: InputProps) => {
+const Input = ({ label, name, kind = 'text', register, type, required, ...rest }: InputProps) => {
     return (
         <div>
             <label className='mb-1 block text-sm font-medium text-gray-700' htmlFor={name}>
