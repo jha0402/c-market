@@ -31,21 +31,21 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
         },
     });
     if (phone) {
-        const message = await twilioClient.messages.create({
-            messagingServiceSid: process.env.TWILIO_MSID,
-            to: process.env.PHONE!,
-            body: `Your login token is ${payload}`,
-        });
-        console.log(message);
+        // const message = await twilioClient.messages.create({
+        //     messagingServiceSid: process.env.TWILIO_MSID,
+        //     to: process.env.PHONE!,
+        //     body: `Your login token is ${payload}`,
+        // });
+        // console.log(message);
     } else if (email) {
-        const email = await mail.send({
-            from: 'jha0402@gmail.com',
-            to: 'jha0402@gmail.com',
-            subject: 'C-market test email',
-            text: `Your token is ${payload}`,
-            html: `<strong>Your token is ${payload}</strong>`,
-        });
-        console.log(email);
+        // const email = await mail.send({
+        //     from: 'jha0402@gmail.com',
+        //     to: 'jha0402@gmail.com',
+        //     subject: 'C-market test email',
+        //     text: `Your token is ${payload}`,
+        //     html: `<strong>Your token is ${payload}</strong>`,
+        // });
+        // console.log(email);
     }
     return res.json({ ok: true });
 }
