@@ -40,7 +40,7 @@ const Layout = ({ title, canGoBack, hasTabBar, children }: LayoutProps) => {
             </div>
             <div className={cls('pt-12', hasTabBar ? 'pb-24' : '')}>{children}</div>
             {hasTabBar ? (
-                <nav className='mx-w-xl w-full bg-white text-gray-700 border-t fixed bottom-0 px-10 pb-5 pt-3 flex justify-between text-xs'>
+                <nav className='max-w-xl w-full bg-white text-gray-700 border-t fixed bottom-0 px-10 pb-5 pt-3 flex justify-between text-xs'>
                     <Link href='/'>
                         <a
                             className={cls(
