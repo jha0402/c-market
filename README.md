@@ -4,6 +4,8 @@
 
 -   React v18
 -   TailwindCSS v3
+-   SWR
+-   React Hook Form
 
 ```shell
 npx create-next-app@latest --typescript
