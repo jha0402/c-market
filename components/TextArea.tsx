@@ -1,12 +1,14 @@
-import React from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 interface TextAreaProps {
     label?: string;
     name?: string;
+    register: UseFormRegisterReturn;
     [key: string]: any;
+    required: boolean;
 }
 
-const TextArea = ({ label, name, ...rest }: TextAreaProps): JSX.Element => {
+const TextArea = ({ label, name, register, required, ...rest }: TextAreaProps): JSX.Element => {
     return (
         <div>
             {label ? (
@@ -16,6 +18,8 @@ const TextArea = ({ label, name, ...rest }: TextAreaProps): JSX.Element => {
             ) : null}
             <textarea
                 id={name}
+                {...register}
+                required={required}
                 className='mt-1 shadow-sm w-full focus:ring-orange-500 rounded-md border-gray-300 focus:border-orange-500 '
                 rows={4}
                 {...rest}

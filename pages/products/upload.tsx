@@ -4,6 +4,7 @@ import Input from '@components/Input';
 import Layout from '@components/Layout';
 import TextArea from '@components/TextArea';
 import { useForm } from 'react-hook-form';
+import useMutation from '@libs/client/useMutation';
 
 interface UploadProductForm {
     name: string;
@@ -13,10 +14,15 @@ interface UploadProductForm {
 }
 
 const Upload: NextPage = () => {
-    const { register, handleSubmit, watch } = useForm<UploadProductForm>();
+    const { register, handleSubmit } = useForm<UploadProductForm>();
+    const [uploadProduct, { loading, data }] = useMutation('/api/products');
+    const onValid = (data: UploadProductForm) => {
+        if (loading) return;
+        uploadProduct(data);
+    };
     return (
         <Layout canGoBack title='Upload Product'>
-            <form className='p-4 space-y-4'>
+            <form className='p-4 space-y-4' onSubmit={handleSubmit(onValid)}>
                 <div>
                     <label className='w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md'>
                         <svg
@@ -47,8 +53,13 @@ const Upload: NextPage = () => {
                     kind='price'
                 />
 
-                <TextArea name='description' label='Description' />
-                <Button text='Upload item' />
+                <TextArea
+                    register={register('description', { required: true })}
+                    required
+                    name='description'
+                    label='Description'
+                />
+                <Button text={loading ? 'Loading' : 'Upload item'} />
             </form>
         </Layout>
     );
