@@ -5,11 +5,11 @@ import withHandler, { ResponseType } from '@libs/server/withHandler';
 import { withApiSession } from '@libs/server/withSession';
 
 async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) {
-    console.log('fd;salkfjals;fkdjsal;', req.query);
+    console.log('==========Console req.query===', req.query);
     const { id } = req.query;
     const product = await client.product.findUnique({
         where: {
-            id: +id,
+            id: +id.toString(),
         },
         include: {
             user: {
