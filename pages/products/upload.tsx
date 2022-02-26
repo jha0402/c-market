@@ -25,7 +25,7 @@ const Upload: NextPage = () => {
     const router = useRouter();
     const { register, handleSubmit } = useForm<UploadProductForm>();
     const [uploadProduct, { loading, data }] = useMutation<UploadProductMutation>('/api/products');
-    const onValid = (data: UploadProductForm) => {
+    const onValid = async (data: UploadProductForm) => {
         if (loading) return;
         uploadProduct(data);
     };

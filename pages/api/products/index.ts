@@ -32,9 +32,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) 
         });
         res.json({
             ok: true,
-            product: {
-                product,
-            },
+            product,
         });
     }
 }
