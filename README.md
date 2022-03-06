@@ -120,3 +120,7 @@ pscale region list
 pscale database create c-market --region ap-northeast
 pscale connect c-market
 ```
+
+## Custom hooks for api handler and session(Iron-session)
+
+-   Setting user session for each request
