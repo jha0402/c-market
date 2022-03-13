@@ -75,7 +75,7 @@ const CommunityPostDetail: NextPage = () => {
         if (answerData && answerData.ok) {
             reset();
         }
-    }, [answerData, reset]);
+    }, [answerData, reset, mutate]);
     return (
         <Layout canGoBack>
             <div>
